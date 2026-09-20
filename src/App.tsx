@@ -1,3 +1,4 @@
+import './index.css'
 import { useEffect, useState } from "react";
 
 const API_KEY = import.meta.env.VITE_NASA_API_KEY;

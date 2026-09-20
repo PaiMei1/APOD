@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    background: #100224;
+    color: white;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* the two zigzag strips on the sides */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 60px;
+    height: 100vh;
+    background: #7b2ff7;
+    z-index: -1;
+}
+
+body::before {
+    left: 0;
+    clip-path: polygon(
+            0 0, 100% 0,
+            60% 5%, 100% 10%, 60% 15%, 100% 20%, 60% 25%, 100% 30%,
+            60% 35%, 100% 40%, 60% 45%, 100% 50%, 60% 55%, 100% 60%,
+            60% 65%, 100% 70%, 60% 75%, 100% 80%, 60% 85%, 100% 90%,
+            60% 95%, 100% 100%, 0 100%
+    );
+}
+
+body::after {
+    right: 0;
+    clip-path: polygon(
+            100% 0, 0 0,
+            40% 5%, 0 10%, 40% 15%, 0 20%, 40% 25%, 0 30%,
+            40% 35%, 0 40%, 40% 45%, 0 50%, 40% 55%, 0 60%,
+            40% 65%, 0 70%, 40% 75%, 0 80%, 40% 85%, 0 90%,
+            40% 95%, 0 100%, 100% 100%
+    );
+}
+
+#root {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 5rem;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+p {
+    font-family: 'Black Ops One', sans-serif;
+}
+
+img,
+video {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    body::before,
+    body::after {
+        display: none;
+    }
+
+    #root {
+        padding: 1.5rem 1rem;
+    }
+}
